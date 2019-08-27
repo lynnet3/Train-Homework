@@ -1,4 +1,4 @@
-$(document), ready(function () {
+//$(document), ready(function () {
     // Your web app's Firebase configuration
     var config = {
         apiKey: "AIzaSyCC8qE0LPCxN9sgQsw1eIWiI0PzWrCm54M",
@@ -11,4 +11,28 @@ $(document), ready(function () {
     };
     // Initialize Firebase
     firebase.initializeApp(config);
-})
+
+    var database = firebase.database();
+    $("#addTrain").on("click", function (event) {
+        event.preventDefult();
+
+        var trnName = $("#trainName").val().trim();
+        var trnDest = $("#destination").val().trim();
+        var frstTrn = $("#firstTrain").val().trim();
+        var trnFrqu = $("#frequency").val().trim();
+
+        var newTrn = {
+            name: trnName,
+            dest: trnDest,
+            first: frstTrn,
+            frequ: trnFrqu
+        };
+        database.ref().push(newTrn);
+
+        console.log(trnName);
+        console.log(trnDest);
+        console.log(frstTrn);
+        console.log(trnFrqu);
+
+    });
+//})
