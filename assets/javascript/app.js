@@ -1,4 +1,4 @@
-//$(document), ready(function () {
+$(document), ready(function () {
     // Your web app's Firebase configuration
     var config = {
         apiKey: "AIzaSyCC8qE0LPCxN9sgQsw1eIWiI0PzWrCm54M",
@@ -34,5 +34,12 @@
         console.log(frstTrn);
         console.log(trnFrqu);
 
+        $("#trainName").val("");
+        $("#destination").val("");
+        $("#firstTrain").val("");
+        $("#frequency").val("");
     });
-//})
+    database.ref().on("child_added",function () {
+        
+    })
+})
