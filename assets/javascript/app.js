@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    // Your web app's Firebase configuration
+
     var config = {
         apiKey: "AIzaSyCC8qE0LPCxN9sgQsw1eIWiI0PzWrCm54M",
         authDomain: "train-time-sheet-hw.firebaseapp.com",
@@ -9,7 +9,7 @@ $(document).ready(function () {
         messagingSenderId: "585815854157",
         appId: "1:585815854157:web:3ae435faee55d4d1"
     };
-    // Initialize Firebase
+
     firebase.initializeApp(config);
 
     var database = firebase.database();
@@ -54,11 +54,13 @@ $(document).ready(function () {
         console.log(frstTrn);
         console.log(trnFrqu);
 
-        var firstTimeConverted = moment(frstTrn, "HH:mm");
+        var frstTrnTime = moment(frstTrn, "HH:mm");
         var currentTime = moment();
-        var diffTime = moment().diff(moment(firstTimeConverted), "minutes");
-        var tRemainder = diffTime % trnFrqu;
-        var tMinutesTillTrain = trnFrqu - tRemainder;
-        var nextTrain = moment(currentTime).add(tMinutesTillTrain, "minutes");
+        var nxtTime = moment().diff(moment(frstTrnTime), "minutes");
+        var timeAway = nxtTime % trnFrqu;
+        var timeTil = trnFrqu - timeAway;
+        var nxtTrn = moment(currentTime).add(timeTil, "minutes");
+
+        $("#trnSchedual > tbody").append("<tr><td>" + trnName + "</td><td>" + trnDest + "</td><td>" + trnFrqu + "</td><td>" + nxtTrn + "</td><td>" + timeAway + "</td></tr>");
     });
 });
