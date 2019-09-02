@@ -40,7 +40,7 @@ $(document).ready(function () {
         $("#firstTrain").val("");
         $("#frequency").val("");
     });
-    
+
     database.ref().on("child_added", function (childSnapshot) {
         console.log(childSnapshot.val());
 
@@ -53,5 +53,12 @@ $(document).ready(function () {
         console.log(trnDest);
         console.log(frstTrn);
         console.log(trnFrqu);
-    })
-})
+
+        var firstTimeConverted = moment(frstTrn, "HH:mm");
+        var currentTime = moment();
+        var diffTime = moment().diff(moment(firstTimeConverted), "minutes");
+        var tRemainder = diffTime % trnFrqu;
+        var tMinutesTillTrain = trnFrqu - tRemainder;
+        var nextTrain = moment(currentTime).add(tMinutesTillTrain, "minutes");
+    });
+});
