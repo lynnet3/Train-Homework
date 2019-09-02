@@ -1,4 +1,4 @@
-$(document), ready(function () {
+$(document).ready(function () {
     // Your web app's Firebase configuration
     var config = {
         apiKey: "AIzaSyCC8qE0LPCxN9sgQsw1eIWiI0PzWrCm54M",
@@ -21,6 +21,11 @@ $(document), ready(function () {
         var frstTrn = $("#firstTrain").val().trim();
         var trnFrqu = $("#frequency").val().trim();
 
+        console.log(trnName);
+        console.log(trnDest);
+        console.log(frstTrn);
+        console.log(trnFrqu);
+
         var newTrn = {
             name: trnName,
             dest: trnDest,
@@ -29,17 +34,24 @@ $(document), ready(function () {
         };
         database.ref().push(newTrn);
 
-        console.log(trnName);
-        console.log(trnDest);
-        console.log(frstTrn);
-        console.log(trnFrqu);
 
         $("#trainName").val("");
         $("#destination").val("");
         $("#firstTrain").val("");
         $("#frequency").val("");
     });
-    database.ref().on("child_added",function () {
-        
+    
+    database.ref().on("child_added", function (childSnapshot) {
+        console.log(childSnapshot.val());
+
+        var trnName = childSnapshot.val().name;
+        var trnDest = childSnapshot.val().dest;
+        var frstTrn = childSnapshot.val().first;
+        var trnFrqu = childSnapshot.val().frequ;
+
+        console.log(trnName);
+        console.log(trnDest);
+        console.log(frstTrn);
+        console.log(trnFrqu);
     })
 })
