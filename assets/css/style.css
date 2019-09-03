@@ -1,4 +1,40 @@
 #jumbo{
     text-align: center;
-    background-color: blue;
+    font-family: 'Kanit', sans-serif;
+    background-image: url(../images/train-station-displays1125x280.jpg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: darkgrey;
+    color: darkslategrey
+}
+#trnSchedul{
+    font-family: 'Comfortaa', cursive;
+    background-color: darkgray;
+}
+#header{
+    font-family: 'Comfortaa', cursive;
+    background-color: darkgray;
+}
+#findTrain{
+    font-family: 'Comfortaa', cursive;
+    background-color: darkgrey;
+}
+#addTrain{
+    font-family: 'Comfortaa', cursive;
+    background-color: darkgrey;
+}
+@media screen and (min-width: 980px){
+    .wrapper{
+        width: 800px;
+}
+@media screen and (min-width: 768px){
+    .wrapper {
+        width: 650px;
+    }
+}}
+@media screen and (min-width: 640px){
+    .wrapper{
+        width: 500px;
+    }
 }

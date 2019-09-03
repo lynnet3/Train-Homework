@@ -39,6 +39,8 @@ $(document).ready(function () {
         $("#destination").val("");
         $("#firstTrain").val("");
         $("#frequency").val("");
+
+          return false;
     });
 
     database.ref().on("child_added", function (childSnapshot) {
@@ -48,6 +50,7 @@ $(document).ready(function () {
         var trnDest = childSnapshot.val().dest;
         var frstTrn = childSnapshot.val().first;
         var trnFrqu = childSnapshot.val().frequ;
+       
 
         console.log(trnName);
         console.log(trnDest);
