@@ -64,6 +64,6 @@ $(document).ready(function () {
         var timeTil = trnFrqu - timeAway;
         var nxtTrn = moment(currentTime).add(timeTil, "minutes");
 
-        $("#trnSchedual > tbody").append("<tr><td>" + trnName + "</td><td>" + trnDest + "</td><td>" + trnFrqu + "</td><td>" + nxtTrn + "</td><td>" + timeAway + "</td></tr>");
+        $("#trnSchedual").append("<tr><th>" + trnName + "</th><td>" + trnDest + "</td><td>" + trnFrqu + "</td><td>" + nxtTrn + "</td><td>" + timeAway + "</td></tr>");
     });
 });
